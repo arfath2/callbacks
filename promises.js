@@ -43,9 +43,14 @@ function deletePost(){
 })
 }
 
-creatPost({title: 'post three', body: 'this is post three'}).then(getPosts).catch(err=> console.log(err));
+//creatPost({title: 'post three', body: 'this is post three'}).then(getPosts).catch(err=> console.log(err));
 
-deletePost();
-deletePost();
+const promise1 = Promise.resolve('hello world')
+const promise2 = 10
+const promise3 = new Promise((resolve,reject)=>
+setTimeout(resolve,2000,'goodbye')
+
+)
+Promise.all([promise1,promise2,promise3]).then(values=> console.log(values))
 // deletePost().then(getPosts).catch(err=> console.log(err));
      
